@@ -1,0 +1,59 @@
+
+hr{
+  background-color: transparent;
+  border: none;
+  height:0px;
+  width: 15%;
+  color: grey;
+  border-width:.5em;
+  border-top-style: dotted ;
+
+}
+
+body{
+  background-color: #EAF6F6;
+}
+td{
+
+  border-style: inset;
+  padding:.5em;
+  border:solid #d2dddd;
+}
+table{
+  border-collapse: collapse;
+  text-align: center;
+  border-style: inset;
+  border:solid #d2dddd;
+}
+tr:nth-child(odd) td.dateLink
+{
+  background-color: #66BFBF;
+}
+tr:nth-child(even) td.dateLink
+{
+  background-color: #93D2D2;
+}
+h1{
+  color: #66BFBF;
+  font: small-caps bold 30px sans-serif;
+}
+h3{
+  color: #66BFBF;
+}
+th{
+  background-color: #f0f3f3;
+}
+/*
+This is a comment in css. It's Kosher as long as i stay in between the asterisks
+*/
+.code{
+  border-left-style:solid;
+  border-width: .33em;
+  padding-left:1em;
+  width:40%;
+  background-color: #f0f3f3
+}
+.code:hover{
+  background-color: #d9dede;
+  cursor: pointer;
+}

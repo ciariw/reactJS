@@ -1,0 +1,74 @@
+
+#page{
+  background-color: #487e91;
+  background-image: url(background.svg);
+  background-repeat: no-repeat;
+  padding-top: 0em;
+  text-align: center;
+  height:900em;
+  width:100%;
+  z-index: 0;
+  position:absolute;
+  top:0;
+}
+
+#global-banner{
+background-color: #3E3E3EBF;
+align-items: center;
+width:100%;
+z-index: 400;
+position:absolute;
+top:80px;
+color:whitesmoke; 
+}
+#global-banner ul{
+  display: inline-flex;
+  margin-bottom: 0;
+  
+}
+#global-banner form{
+  display: inline-flex;
+  margin-right: 0;
+  align-self:flex-end;
+}
+#global-banner form input{
+cursor: auto;
+background-color: #2E2E2E;
+
+}
+#global-banner .button{
+ 
+  background-color: #273b42;
+  border: none;
+  cursor: pointer;
+  padding: 2px 12px 3px 12px;
+  text-decoration: none;
+}
+#global-banner .button:hover{
+  background-color: #18262ba5;
+}
+
+#global-banner li{
+  
+  list-style: none;
+  color:whitesmoke;
+  padding: .5em 1em .5em 1em;
+}
+#global-banner li:hover{
+  
+  background-color: #2E2E2E;
+  cursor: pointer;
+}
+div a{ color:white;}
+div a:active{ color:white;}
+div a:visited{ color:white;}
+
+.webContent{
+  background-color: aliceblue;
+  position:relative;
+  width:99%;
+  left:0;
+  right:0;
+  margin:auto;
+  top:9.4em;
+}
