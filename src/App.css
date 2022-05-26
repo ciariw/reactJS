@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height:80em;
+  display: flex;
 }
 
 .App-logo {
@@ -43,16 +45,13 @@
   background-repeat: no-repeat;
   padding-top: 0em;
   text-align: center;
-  height:64em;
+  z-index: 1;
   width:100%;
-  z-index: 0;
-  position:absolute;
-  top:0;
 }
 
 #Nav-bar{
 background-color: #3E3E3EBF;
-align-items: center;
+
 width:100%;
 z-index: 400;
 top: 0px;
@@ -60,7 +59,7 @@ position:sticky;
 color:whitesmoke; 
 padding:0;
 }
-#Nav-bar ul{
+#Nav-bar #Root-List-Items{
   display: inline-flex;
   margin:0;
   position:sticky;
@@ -69,7 +68,6 @@ padding:0;
   display: inline-flex;
 }
 #Nav-bar form input{
-cursor: auto;
 background-color: #2e2e2e63;
 color: #f4fdff;
 padding: 0%;
@@ -78,7 +76,6 @@ margin: 0 0.25em;
 
 }
 #Nav-bar #button{
- 
   background-color: #273b42;
   width: 70%;
   cursor: pointer;
@@ -93,12 +90,31 @@ margin: 0 0.25em;
   background-color: #18262ba5;
 }
 
-#Nav-bar li{
-  
+#Nav-bar #Root-List-Items li{
+  height:2.5em;
   list-style: none;
   color:whitesmoke;
   padding: .5em 1em .5em 1em;
 }
+.Dropdown{
+  display:block;
+  padding-left:0;
+  
+}
+.Dropdown:hover ul{
+  display:block;
+}
+.Dropdown ul{
+  display:none;
+  padding: 0;
+  width: fit-content;
+  top:2.5em;
+  right: 0;
+  background-color: #3E3E3EBF;
+  position:absolute;
+  padding-left:0;
+}
+
 #Nav-bar li:hover{
   background-color: #2E2E2E;
   cursor: pointer;
@@ -113,12 +129,10 @@ div a:visited{ color:white;}
   border-radius: 0.2em;
   margin-top: 2em;
   display: block;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
-  grid-row-start: 2;
   width: 98%;
   background-color: #f4fdff;
 }
+
 .generic-button{
   color:white;
   background-color: #273b42;
@@ -136,7 +150,6 @@ div a:visited{ color:white;}
 #post-widget{
   display: inline-block;
   text-align: left;
-  align-items: flex-start;
   width:100%;
   height:fit-content;
 }
@@ -149,7 +162,7 @@ div a:visited{ color:white;}
 
 }
 #post-widget .generic-button{
-  position: absolute;
+  position: relative;
   margin: 0.5em;
   text-align: center;
   float:inline-end;
@@ -161,7 +174,7 @@ div a:visited{ color:white;}
   display:float;
   flex-direction: column;
   width: 100%;
-  height:48em;
+  height:50%;
   position: relative;
   text-align: left;
 }
@@ -173,7 +186,7 @@ div a:visited{ color:white;}
   position:absolute;
   text-align: left;
   padding:0.5em 1em;
-  width: fit-content;
+  max-width: 10em;
   height: fit-content;
   border-radius: 20%;
   color:whitesmoke;
@@ -183,4 +196,62 @@ div a:visited{ color:white;}
 #note-mapper .list-item:hover{
   background-color: #282c34;
   width: fit-content;
+}
+/*Style for Wordle page:
+- wordle body holds guess list
+- guess item is the guessed item
+- keyboard spans the page and displays keyboard buttons
+*/
+#wordle-body{
+  margin:auto;
+  height:fit-content;
+  border-radius: 0.2em;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(5,1fr);
+  width: fit-content;
+  padding:1em 10em;
+  background-color: #fafefe;
+  gap: 3px;
+}
+.guess-item{
+  background-color: inherit;
+  border-style: solid;
+  border-color: #282c34;
+  border-width: 2px;
+  width: 1.75em;
+  margin:0.08em 0;
+  font-size: 3rem;
+  border-radius: 0.05em;
+  height: 1.75em;
+  min-height: 0.5em;
+}
+#keyboard .keyboard-button{
+  background-color: fafefe;
+  border-style: solid;
+  border-color: #282c34;
+  border-width: 1px;
+  width: 1.75em;
+  margin:0.1em;
+  font-size: 2rem;
+  border-radius: 0.05em;
+  height: 1.2em;
+  min-height: 0.5em;
+  padding-bottom: 1.5em;
+}
+#keyboard .keyboard-button:hover{
+  background-color: wheat;
+}
+#resume-container{
+  width: 100%;
+  height:50%;
+}
+
+.thumbnail-resume{
+  top:-30em;
+  left:5em;
+
+
+  position:absolute;
 }

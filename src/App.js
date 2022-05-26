@@ -1,19 +1,26 @@
 import './App.css';
 import './css/bootstrap.css';
-import React ,{useState, useEffect, useRef} from 'react';
-import Notes from './Notes.js'
-
+import React ,{useState, useEffect, useRef, useCallback} from 'react';
+import Notes from './Notes.js';
+import Wordle from './Wordle.js';
+import Resume from './Resume.js';
+import Anime, {anime} from 'react-anime';
+let wordleWord = "zamboni";
 function App() {
   return (
+  <div className='App'>
   <div id="page">
     <header>
       <h1 className="display-4">Emeka Ariwodo</h1>
     </header>
    <AppBody/>
+  </div>
   </div>)
 }
 
+
 const SeachBar = () => {
+  
     return (
     <>
     <form>
@@ -36,11 +43,7 @@ function Quote(){
     <h1>Quote page</h1>
     </>);
 }
-function Resume(){
-  return (<>
-    <h1>Resume page</h1>
-    </>);
-}
+
 function About(){
   return (<>
     <h1>About page</h1>
@@ -49,12 +52,13 @@ function About(){
 
 
 
-const AppBody = ()=>{
+function AppBody(){
   
-  //let [state,UpdateState] = useState(["Home",<Home/>]);
-  let [state,UpdateState] = useState(["Home",<Home/>]);
+  const [pageState,UpdateState] = useState(["Home",<Home/>]);
   
-  useEffect(x=>{document.title=state[0]},[state]);
+  useEffect(x=>{document.title=pageState[0]},[pageState]);
+
+
   return (
           <>
             <div id="Nav-bar">
@@ -63,20 +67,19 @@ const AppBody = ()=>{
                 <li onClick={()=>{UpdateState(["Print Quote",<Quote />])}}>Print Quote</li>
                 <li onClick={()=>{UpdateState(["Resume",<Resume/>])}}>Resume</li>
                 <li onClick={()=>{UpdateState(["About",<About/>])}}>About</li>
-                <li 
-                    onMouseOver={()=>console.log('wow, mouse over.')}
+                <li
                     className = "Dropdown">Apps
                     <ul>
                     <li onClick={()=>{UpdateState(["Notes",<Notes/>])}}>
                       Notes App
                     </li>
-                    <li>Wordle App</li>
+                    <li onClick={()=>UpdateState(['Wordle',<Wordle solution={wordleWord}/>])}>Wordle App</li>
                     </ul>
                 </li>
               </ul>
             <SeachBar/>
             </div>
-              {state[1]}
+              {pageState[1]}
           </>
         );
 }

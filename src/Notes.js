@@ -1,4 +1,5 @@
-import React,{useState,useRef,useEffect} from "react";
+import React,{useState,useRef,useEffect,useCallback} from "react";
+import Anime, {anime} from 'react-anime';
 // If the ls[notes] exists, set base to the normal representation. If not, set it to object
 // change ls[notes] directly by ls[notes] = JSON.stringify(base)
 //clear by clearing 
@@ -7,7 +8,6 @@ let base = localStorage['notes']? JSON.parse(localStorage['notes']) : {'Elements
 // object containing an array of react element references, react element location
 // And the contents of the react element. 
 //Might be natively implemented already.
-console.log(base);
 
 function Lupdater(props){
     //
@@ -37,8 +37,11 @@ function Lupdater(props){
                     onDragEnd = {(e)=>DragEnd(e)}
                     >{props.contents}</span>;
     }
-    //
-    let xa = props.lists.map((x,id)=><ListItemElement  identifier = {id} key = {id} contents={x} position={props.positionStates[id]}/>);
+    
+    let xa = <Anime delay = {anime.stagger(100)}
+                    scale={[0.1,0.9]}>
+              {props.lists.map(useCallback((x,id)=><ListItemElement  identifier = {id} key = {id} contents={x} position={props.positionStates[id]}/>),[props.list])}
+              </Anime>
     return xa;
   }
 
@@ -46,7 +49,6 @@ function Notes(){
     const [note,UpdateNote] = useState('');
     const [listitem,UpdateList] = useState(base['Contents']);//initial state to the stored values
     const [positions, updatePos] = useState(base['Locations']);// initial state to the stored values
-    console.log(base);
     
     //localStorage['notes'] = JSON.stringify(base);
     // 
@@ -65,10 +67,6 @@ function Notes(){
         }
     }
     // Need to update base[Locations]. Will implement later
-    
-    
-    
-    
     
     return (
       <div id="webContent">
